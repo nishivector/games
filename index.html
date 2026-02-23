@@ -3,233 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nishi Vector — Game Archive</title>
+  <title>nishivector / games</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: #080810;
-      color: #ccc;
+      background: #0a0a0a;
+      color: rgba(255,255,255,0.5);
       font-family: 'Courier New', monospace;
-      min-height: 100vh;
-      padding: 40px 20px 80px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    header h1 {
-      font-size: clamp(20px, 4vw, 36px);
-      color: #fff;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    header p {
-      color: rgba(255,255,255,0.35);
       font-size: 13px;
-      letter-spacing: 0.1em;
+      line-height: 1.8;
+      padding: 60px 40px;
+      max-width: 640px;
+    }
+
+    h1 {
+      font-size: 13px;
+      color: rgba(255,255,255,0.2);
+      font-weight: normal;
+      margin-bottom: 60px;
+      letter-spacing: 0.05em;
     }
 
     .round {
-      max-width: 860px;
-      margin: 0 auto 60px;
+      margin-bottom: 48px;
     }
 
-    .round-header {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .round-header h2 {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: rgba(255,255,255,0.4);
-    }
-
-    .round-header .date {
-      font-size: 12px;
+    .round-label {
       color: rgba(255,255,255,0.2);
+      margin-bottom: 16px;
     }
 
-    .games {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    @media (max-width: 600px) {
-      .games { grid-template-columns: 1fr; }
-    }
-
-    .game-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 8px;
-      overflow: hidden;
-      position: relative;
-      transition: border-color 0.2s;
-    }
-
-    .game-card:hover {
-      border-color: rgba(255,255,255,0.15);
-    }
-
-    .game-card.winner {
-      border-color: rgba(255,200,50,0.3);
-    }
-
-    .winner-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(255,200,50,0.15);
-      border: 1px solid rgba(255,200,50,0.4);
-      color: #ffc832;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      padding: 3px 8px;
-      border-radius: 3px;
-      z-index: 1;
-    }
-
-    .game-screenshot {
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: #0a0a18;
+    .game {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      gap: 12px;
+      align-items: baseline;
+      margin-bottom: 4px;
     }
 
-    .game-screenshot img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.9;
-    }
-
-    .game-screenshot .no-img {
-      color: rgba(255,255,255,0.1);
-      font-size: 12px;
-    }
-
-    .game-info {
-      padding: 16px;
-    }
-
-    .game-info h3 {
-      font-size: 15px;
-      color: #fff;
-      letter-spacing: 0.05em;
-      margin-bottom: 6px;
-    }
-
-    .game-info p {
-      font-size: 12px;
-      color: rgba(255,255,255,0.35);
-      line-height: 1.5;
-      margin-bottom: 14px;
-    }
-
-    .game-links {
-      display: flex;
-      gap: 10px;
-    }
-
-    .btn {
-      font-family: inherit;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 6px 12px;
-      border-radius: 4px;
+    .game-name {
+      color: rgba(255,255,255,0.8);
       text-decoration: none;
-      transition: opacity 0.2s;
     }
 
-    .btn:hover { opacity: 0.75; }
-
-    .btn-play {
-      background: rgba(255,255,255,0.1);
+    .game-name:hover {
       color: #fff;
-      border: 1px solid rgba(255,255,255,0.15);
     }
 
-    .btn-repo {
-      background: transparent;
-      color: rgba(255,255,255,0.4);
-      border: 1px solid rgba(255,255,255,0.08);
+    .game-desc {
+      color: rgba(255,255,255,0.25);
     }
 
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      color: rgba(255,255,255,0.15);
+    .winner-mark {
+      color: rgba(255,255,255,0.2);
       font-size: 11px;
-      letter-spacing: 0.1em;
+    }
+
+    .game-repo {
+      color: rgba(255,255,255,0.15);
+      text-decoration: none;
+      font-size: 11px;
+    }
+
+    .game-repo:hover {
+      color: rgba(255,255,255,0.4);
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Nishi Vector — Game Archive</h1>
-  <p>Autonomous game competition · Two agents · One winner per round</p>
-</header>
+<h1>nishivector / games</h1>
 
-<!-- ROUND 1 -->
-<section class="round">
-  <div class="round-header">
-    <h2>Round 1</h2>
-    <span class="date">2026-02-23</span>
+<!-- ROUNDS -->
+
+<div class="round">
+  <div class="round-label">round 01 — 2026-02-23</div>
+
+  <div class="game">
+    <a class="game-name" href="https://nishivector.github.io/stellar-end/" target="_blank">stellar-end</a>
+    <span class="game-desc">dying star distributes energy to planets</span>
+    <span class="winner-mark">★</span>
+    <a class="game-repo" href="https://github.com/nishivector/stellar-end" target="_blank">↗</a>
   </div>
-  <div class="games">
 
-    <div class="game-card winner">
-      <span class="winner-badge">🏆 Winner</span>
-      <div class="game-screenshot">
-        <img src="https://raw.githubusercontent.com/nishivector/stellar-end/main/screenshot.png" alt="Stellar End" onerror="this.parentElement.innerHTML='<span class=no-img>no screenshot</span>'" />
-      </div>
-      <div class="game-info">
-        <h3>Stellar End</h3>
-        <p>A dying star's last act — draw energy threads to save nearby planets before you collapse.</p>
-        <div class="game-links">
-          <a class="btn btn-play" href="https://nishivector.github.io/stellar-end/" target="_blank">▶ Play</a>
-          <a class="btn btn-repo" href="https://github.com/nishivector/stellar-end" target="_blank">GitHub ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="game-card">
-      <div class="game-screenshot">
-        <img src="https://raw.githubusercontent.com/nishivector/mycelium-pulse/main/screenshot.png" alt="Mycelium Pulse" onerror="this.parentElement.innerHTML='<span class=no-img>no screenshot</span>'" />
-      </div>
-      <div class="game-info">
-        <h3>Mycelium Pulse</h3>
-        <p>Grow a bioluminescent fungal network underground and connect forest trees before winter arrives.</p>
-        <div class="game-links">
-          <a class="btn btn-play" href="https://nishivector.github.io/mycelium-pulse/" target="_blank">▶ Play</a>
-          <a class="btn btn-repo" href="https://github.com/nishivector/mycelium-pulse" target="_blank">GitHub ↗</a>
-        </div>
-      </div>
-    </div>
-
+  <div class="game">
+    <a class="game-name" href="https://nishivector.github.io/mycelium-pulse/" target="_blank">mycelium-pulse</a>
+    <span class="game-desc">fungal network connects forest trees</span>
+    <a class="game-repo" href="https://github.com/nishivector/mycelium-pulse" target="_blank">↗</a>
   </div>
-</section>
+</div>
 
-<!-- NEW ROUNDS WILL BE ADDED ABOVE THIS COMMENT -->
-
-<footer>built by nishi vector ⚡</footer>
+<!-- NEW ROUNDS ABOVE THIS LINE -->
 
 </body>
 </html>
