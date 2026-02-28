@@ -79,32 +79,48 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.25s ease, filter 0.25s ease;
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
 
     .game-thumb:hover img {
       transform: scale(1.04);
-      filter: brightness(1.12);
+      filter: brightness(1.1);
     }
 
+    /* Play button circle */
     .game-thumb::after {
-      content: 'PLAY ▶';
+      content: '';
       position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: monospace;
-      font-size: 13px;
-      letter-spacing: 0.18em;
-      color: #fff;
-      background: rgba(0,0,0,0.38);
-      opacity: 0;
-      transition: opacity 0.2s ease;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.88);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: transform 0.2s ease, background 0.2s ease;
+      pointer-events: none;
+    }
+
+    /* Play triangle */
+    .game-thumb::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 9px 0 9px 16px;
+      border-color: transparent transparent transparent #111;
+      top: 50%;
+      left: calc(50% + 3px);
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      pointer-events: none;
     }
 
     .game-thumb:hover::after {
-      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.12);
+      background: #fff;
     }
 
     .game-body {
@@ -146,17 +162,6 @@
       align-items: center;
     }
 
-    .link-play {
-      font-size: 13px;
-      font-weight: 500;
-      color: #111;
-      text-decoration: none;
-      border-bottom: 1px solid #111;
-      padding-bottom: 1px;
-    }
-
-    .link-play:hover { opacity: 0.5; }
-
     .link-repo {
       font-size: 13px;
       color: #bbb;
@@ -196,9 +201,7 @@
             <span class="game-title">Wake Rider</span>
           </div>
           <p class="game-desc">A lone recon wedge with no engine, surviving by drafting enemy patrol ships — steal their speed or bleed to zero.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/wake-rider/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/wake-rider" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/wake-rider" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -212,9 +215,7 @@
             <span class="game-title">Arc Read</span>
           </div>
           <p class="game-desc">Draw interceptor arcs to where enemies will be — predict trajectories and defend your city before it falls.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/arc-read/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/arc-read" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/arc-read" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -231,9 +232,7 @@
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Lava Step</span></div>
           <p class="game-desc">Freeze flowing lava into crystal platforms with a tap — then race across before they melt. Read the shadow angles to anticipate where channels bend, and place your steps three beats ahead.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/lava-step/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/lava-step" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/lava-step" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -242,9 +241,7 @@
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Flock Shepherd</span><span class="winner-badge">Winner</span></div>
           <p class="game-desc">Guide a luminous flock through predator clouds using only proximity — move near them to repel, hold perfectly still to attract. Stillness compresses the flock into a comet that punches through barriers.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/flock-shepherd/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/flock-shepherd" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/flock-shepherd" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -260,9 +257,7 @@
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Ring Flip</span></div>
           <p class="game-desc">Enemies orbit you in concentric rings. One button flips every enemy's direction simultaneously — time it perfectly to chain collisions across all rings at once.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/ring-flip/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/ring-flip" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/ring-flip" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -271,9 +266,7 @@
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Scent Trail</span></div>
           <p class="game-desc">Drop bait to redirect a massive beast's attention away from you. With finite bait and a fixed eat timer, every drop is a calculated gamble.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/scent-trail/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/scent-trail" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/scent-trail" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -289,9 +282,7 @@
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Phase Drift</span></div>
           <p class="game-desc">Navigate an isometric maze while phase-shifting between two overlapping worlds — threats exist independently in each layer. Double-tap to switch.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/phase-drift/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/phase-drift" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/phase-drift" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -300,9 +291,7 @@
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Resonant Break</span><span class="winner-badge">Winner</span></div>
           <p class="game-desc">Hold and drag to tune your resonance weapon to match each enemy's frequency — release at peak amplitude to shatter them. Precision over reaction.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/resonant-break/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/resonant-break" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/resonant-break" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -318,9 +307,7 @@
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Shield Break</span></div>
           <p class="game-desc">Hold to raise your shield, release at the perfect moment to parry enemy projectiles and reflect them back. Survive escalating feints and speeds across 5 waves.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/shield-break/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/shield-break" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/shield-break" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -329,9 +316,7 @@
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Fire Seed</span><span class="winner-badge">Winner</span></div>
           <p class="game-desc">Tap to ignite a fuel cell and watch fire spread across the grid. Navigate water barriers and damp cells to set everything ablaze across 5 puzzle levels.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/fire-seed/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/fire-seed" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/fire-seed" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -353,9 +338,7 @@
             <span class="winner-badge">Winner</span>
           </div>
           <p class="game-desc">Rotate a central paddle to deflect laser bolts off arena walls and shatter orbiting crystal targets.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/mirror-strike/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/mirror-strike" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/mirror-strike" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -369,9 +352,7 @@
             <span class="game-title">Root Siege</span>
           </div>
           <p class="game-desc">Extend roots from a central tree to absorb nutrient nodes before beetle swarms consume them and destroy your core.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/root-siege/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/root-siege" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/root-siege" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -394,9 +375,7 @@
             <span class="winner-badge">Winner</span>
           </div>
           <p class="game-desc">Weave a thread shuttle through moving weft bars — rhythm, anticipation, flow.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/weft-runner/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/weft-runner" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/weft-runner" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -410,9 +389,7 @@
             <span class="game-title">Anchor Swing</span>
           </div>
           <p class="game-desc">Fire anchor bolts into the cave ceiling, swing on ropes, and collect glowing crystals.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/anchor-swing/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/anchor-swing" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/anchor-swing" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -429,9 +406,7 @@
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Charge Shot</span><span class="winner-badge">Winner</span></div>
           <p class="game-desc">A space shooter where you charge a beam weapon by holding anywhere on screen. Match beam width to enemy formation density to destroy them all.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/charge-shot/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/charge-shot" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/charge-shot" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -440,9 +415,7 @@
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Grind Chain</span></div>
           <p class="game-desc">A side-scrolling skate grinding game where timing is everything. Chain grinds together for massive score multipliers, but one misstep and your chain breaks!</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/grind-chain/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/grind-chain" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/grind-chain" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -464,9 +437,7 @@
             <span class="winner-badge">Winner</span>
           </div>
           <p class="game-desc">Tap the instant enemy formations peak over your ring — a shockwave shatters everything it touches.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/formation-break/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/formation-break" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/formation-break" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -480,9 +451,7 @@
             <span class="game-title">Drift Gate</span>
           </div>
           <p class="game-desc">Hold to drift, release to fly — thread gate markers on a looping circuit before time runs out.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/drift-gate/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/drift-gate" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/drift-gate" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -504,9 +473,7 @@
             <span class="game-title">Slice Geometry</span>
           </div>
           <p class="game-desc">Draw slicing lines across geometric barriers to cut them open and redirect glowing particles toward target portals.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/slice-geometry/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/slice-geometry" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/slice-geometry" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -521,9 +488,7 @@
             <span class="winner-badge">Winner</span>
           </div>
           <p class="game-desc">You are a bioluminescent predator in the deep ocean — tap to emit a hunting pulse that reveals prey silhouettes, then dash to catch them.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/pulse-hunter/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/pulse-hunter" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/pulse-hunter" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -546,9 +511,7 @@
             <span class="game-title">Neon Vortex</span>
           </div>
           <p class="game-desc">Race through a collapsing dimension — steer a neon ship down an infinite tunnel as reality tears apart around you.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/neon-vortex/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/neon-vortex" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/neon-vortex" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -562,9 +525,7 @@
             <span class="game-title">The Hunted</span>
           </div>
           <p class="game-desc">Something follows. It never stops. Run through a dark world as a silhouette, outlasting an unseen pursuer.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/the-hunted/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/the-hunted" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/the-hunted" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -587,9 +548,7 @@
             <span class="winner-badge">Winner</span>
           </div>
           <p class="game-desc">You are a fire sprite ascending a burning ancient forest — leap between branches, catch embers, dodge the rain.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/ember-ascent/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/ember-ascent" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/ember-ascent" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -603,9 +562,7 @@
             <span class="game-title">Signal Ghost</span>
           </div>
           <p class="game-desc">A dying radio signal searching for home — tap relay towers to bounce your pulse across the city before your energy fades.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/signal-ghost/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/signal-ghost" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/signal-ghost" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -627,9 +584,7 @@
             <span class="game-title">Prism Rift</span>
           </div>
           <p class="game-desc">Rotate crystal prisms to redirect scattered light beams to their matching color receptors before time runs out.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/prism-rift/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/prism-rift" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/prism-rift" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -644,9 +599,7 @@
             <span class="winner-badge">Winner</span>
           </div>
           <p class="game-desc">You are the moon — drag yourself across the sky to pull tidal water through coastal channels and fill the sacred pools.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/tide-shepherd/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/tide-shepherd" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/tide-shepherd" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -669,9 +622,7 @@
             <span class="winner-badge">Winner</span>
           </div>
           <p class="game-desc">Navigate a pitch-black cave using sonar pulses — sound reveals the world, breath is your resource.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/echo-cave/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/echo-cave" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/echo-cave" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -685,9 +636,7 @@
             <span class="game-title">Last Lighthouse</span>
           </div>
           <p class="game-desc">You are the last lighthouse keeper — drag the beam to guide ships past rocks before they're lost to fog.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/last-lighthouse/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/last-lighthouse" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/last-lighthouse" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -710,9 +659,7 @@
             <span class="winner-badge">Winner</span>
           </div>
           <p class="game-desc">A dying star distributes its remaining energy to nearby planets before collapsing.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/stellar-end/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/stellar-end" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/stellar-end" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -726,9 +673,7 @@
             <span class="game-title">Mycelium Pulse</span>
           </div>
           <p class="game-desc">An underground fungal network grows through the soil to connect isolated forest trees.</p>
-          <div class="game-links">
-            <a class="link-play" href="https://nishivector.github.io/mycelium-pulse/" target="_blank">Play</a>
-            <a class="link-repo" href="https://github.com/nishivector/mycelium-pulse" target="_blank">GitHub ↗</a>
+          <div class="game-links">            <a class="link-repo" href="https://github.com/nishivector/mycelium-pulse" target="_blank">GitHub ↗</a>
           </div>
         </div>
       </div>
