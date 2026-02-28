@@ -65,10 +65,13 @@
     }
 
     .game-thumb {
+      display: block;
       width: 100%;
       aspect-ratio: 16/9;
       background: #111;
       overflow: hidden;
+      position: relative;
+      text-decoration: none;
     }
 
     .game-thumb img {
@@ -76,6 +79,32 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .game-thumb:hover img {
+      transform: scale(1.04);
+      filter: brightness(1.12);
+    }
+
+    .game-thumb::after {
+      content: 'PLAY ▶';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: monospace;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      color: #fff;
+      background: rgba(0,0,0,0.38);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .game-thumb:hover::after {
+      opacity: 1;
     }
 
     .game-body {
@@ -159,9 +188,9 @@
     <div class="games">
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/wake-rider/" target="_blank">
           <img src="https://nishivector.github.io/wake-rider/screenshot.png" alt="Wake Rider" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Wake Rider</span>
@@ -175,9 +204,9 @@
       </div>
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/arc-read/" target="_blank">
           <img src="https://nishivector.github.io/arc-read/screenshot.png" alt="Arc Read" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Arc Read</span>
@@ -198,7 +227,7 @@
     <div class="round-label">Round 14 &mdash; Feb 27, 2026</div>
     <div class="games">
       <div class="game">
-        <div class="game-thumb"><img src="https://nishivector.github.io/lava-step/screenshot.png" alt="Lava Step" /></div>
+        <a class="game-thumb" href="https://nishivector.github.io/lava-step/" target="_blank"><img src="https://nishivector.github.io/lava-step/screenshot.png" alt="Lava Step" /></a>
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Lava Step</span></div>
           <p class="game-desc">Freeze flowing lava into crystal platforms with a tap — then race across before they melt. Read the shadow angles to anticipate where channels bend, and place your steps three beats ahead.</p>
@@ -209,7 +238,7 @@
         </div>
       </div>
       <div class="game">
-        <div class="game-thumb"><img src="https://nishivector.github.io/flock-shepherd/screenshot.png" alt="Flock Shepherd" /></div>
+        <a class="game-thumb" href="https://nishivector.github.io/flock-shepherd/" target="_blank"><img src="https://nishivector.github.io/flock-shepherd/screenshot.png" alt="Flock Shepherd" /></a>
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Flock Shepherd</span><span class="winner-badge">Winner</span></div>
           <p class="game-desc">Guide a luminous flock through predator clouds using only proximity — move near them to repel, hold perfectly still to attract. Stillness compresses the flock into a comet that punches through barriers.</p>
@@ -227,7 +256,7 @@
     <div class="round-label">Round 13 &mdash; Feb 26, 2026</div>
     <div class="games">
       <div class="game">
-        <div class="game-thumb"><img src="https://nishivector.github.io/ring-flip/screenshot.png" alt="Ring Flip" /></div>
+        <a class="game-thumb" href="https://nishivector.github.io/ring-flip/" target="_blank"><img src="https://nishivector.github.io/ring-flip/screenshot.png" alt="Ring Flip" /></a>
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Ring Flip</span></div>
           <p class="game-desc">Enemies orbit you in concentric rings. One button flips every enemy's direction simultaneously — time it perfectly to chain collisions across all rings at once.</p>
@@ -238,7 +267,7 @@
         </div>
       </div>
       <div class="game">
-        <div class="game-thumb"><img src="https://nishivector.github.io/scent-trail/screenshot.png" alt="Scent Trail" /></div>
+        <a class="game-thumb" href="https://nishivector.github.io/scent-trail/" target="_blank"><img src="https://nishivector.github.io/scent-trail/screenshot.png" alt="Scent Trail" /></a>
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Scent Trail</span></div>
           <p class="game-desc">Drop bait to redirect a massive beast's attention away from you. With finite bait and a fixed eat timer, every drop is a calculated gamble.</p>
@@ -256,7 +285,7 @@
     <div class="round-label">Round 12 &mdash; Feb 25, 2026</div>
     <div class="games">
       <div class="game">
-        <div class="game-thumb"><img src="https://nishivector.github.io/phase-drift/screenshot.png" alt="Phase Drift" /></div>
+        <a class="game-thumb" href="https://nishivector.github.io/phase-drift/" target="_blank"><img src="https://nishivector.github.io/phase-drift/screenshot.png" alt="Phase Drift" /></a>
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Phase Drift</span></div>
           <p class="game-desc">Navigate an isometric maze while phase-shifting between two overlapping worlds — threats exist independently in each layer. Double-tap to switch.</p>
@@ -267,7 +296,7 @@
         </div>
       </div>
       <div class="game">
-        <div class="game-thumb"><img src="https://nishivector.github.io/resonant-break/screenshot.png" alt="Resonant Break" /></div>
+        <a class="game-thumb" href="https://nishivector.github.io/resonant-break/" target="_blank"><img src="https://nishivector.github.io/resonant-break/screenshot.png" alt="Resonant Break" /></a>
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Resonant Break</span><span class="winner-badge">Winner</span></div>
           <p class="game-desc">Hold and drag to tune your resonance weapon to match each enemy's frequency — release at peak amplitude to shatter them. Precision over reaction.</p>
@@ -285,7 +314,7 @@
     <div class="round-label">Round 11 &mdash; Feb 24, 2026</div>
     <div class="games">
       <div class="game">
-        <div class="game-thumb"><img src="https://nishivector.github.io/shield-break/screenshot.png" alt="Shield Break" /></div>
+        <a class="game-thumb" href="https://nishivector.github.io/shield-break/" target="_blank"><img src="https://nishivector.github.io/shield-break/screenshot.png" alt="Shield Break" /></a>
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Shield Break</span></div>
           <p class="game-desc">Hold to raise your shield, release at the perfect moment to parry enemy projectiles and reflect them back. Survive escalating feints and speeds across 5 waves.</p>
@@ -296,7 +325,7 @@
         </div>
       </div>
       <div class="game">
-        <div class="game-thumb"><img src="https://nishivector.github.io/fire-seed/screenshot.png" alt="Fire Seed" /></div>
+        <a class="game-thumb" href="https://nishivector.github.io/fire-seed/" target="_blank"><img src="https://nishivector.github.io/fire-seed/screenshot.png" alt="Fire Seed" /></a>
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Fire Seed</span><span class="winner-badge">Winner</span></div>
           <p class="game-desc">Tap to ignite a fuel cell and watch fire spread across the grid. Navigate water barriers and damp cells to set everything ablaze across 5 puzzle levels.</p>
@@ -315,9 +344,9 @@
     <div class="games">
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/mirror-strike/" target="_blank">
           <img src="https://nishivector.github.io/mirror-strike/screenshot.png" alt="Mirror Strike" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Mirror Strike</span>
@@ -332,9 +361,9 @@
       </div>
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/root-siege/" target="_blank">
           <img src="https://nishivector.github.io/root-siege/screenshot.png" alt="Root Siege" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Root Siege</span>
@@ -356,9 +385,9 @@
     <div class="games">
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/weft-runner/" target="_blank">
           <img src="https://nishivector.github.io/weft-runner/screenshot.png" alt="Weft Runner" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Weft Runner</span>
@@ -373,9 +402,9 @@
       </div>
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/anchor-swing/" target="_blank">
           <img src="https://nishivector.github.io/anchor-swing/screenshot.png" alt="Anchor Swing" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Anchor Swing</span>
@@ -396,7 +425,7 @@
     <div class="round-label">Round 08 &mdash; Feb 24, 2026</div>
     <div class="games">
       <div class="game">
-        <div class="game-thumb"><img src="https://nishivector.github.io/charge-shot/screenshot.png" alt="Charge Shot" /></div>
+        <a class="game-thumb" href="https://nishivector.github.io/charge-shot/" target="_blank"><img src="https://nishivector.github.io/charge-shot/screenshot.png" alt="Charge Shot" /></a>
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Charge Shot</span><span class="winner-badge">Winner</span></div>
           <p class="game-desc">A space shooter where you charge a beam weapon by holding anywhere on screen. Match beam width to enemy formation density to destroy them all.</p>
@@ -407,7 +436,7 @@
         </div>
       </div>
       <div class="game">
-        <div class="game-thumb"><img src="https://nishivector.github.io/grind-chain/screenshot.png" alt="Grind Chain" /></div>
+        <a class="game-thumb" href="https://nishivector.github.io/grind-chain/" target="_blank"><img src="https://nishivector.github.io/grind-chain/screenshot.png" alt="Grind Chain" /></a>
         <div class="game-body">
           <div class="game-title-row"><span class="game-title">Grind Chain</span></div>
           <p class="game-desc">A side-scrolling skate grinding game where timing is everything. Chain grinds together for massive score multipliers, but one misstep and your chain breaks!</p>
@@ -426,9 +455,9 @@
     <div class="games">
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/formation-break/" target="_blank">
           <img src="https://nishivector.github.io/formation-break/screenshot.png" alt="Formation Break" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Formation Break</span>
@@ -443,9 +472,9 @@
       </div>
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/drift-gate/" target="_blank">
           <img src="https://nishivector.github.io/drift-gate/screenshot.png" alt="Drift Gate" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Drift Gate</span>
@@ -467,9 +496,9 @@
     <div class="games">
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/slice-geometry/" target="_blank">
           <img src="https://nishivector.github.io/slice-geometry/screenshot.png" alt="Slice Geometry" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Slice Geometry</span>
@@ -483,9 +512,9 @@
       </div>
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/pulse-hunter/" target="_blank">
           <img src="https://nishivector.github.io/pulse-hunter/screenshot.png" alt="Pulse Hunter" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Pulse Hunter</span>
@@ -509,9 +538,9 @@
     <div class="games">
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/neon-vortex/" target="_blank">
           <img src="https://nishivector.github.io/neon-vortex/screenshot.png" alt="Neon Vortex" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Neon Vortex</span>
@@ -525,9 +554,9 @@
       </div>
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/the-hunted/" target="_blank">
           <img src="https://nishivector.github.io/the-hunted/screenshot.png" alt="The Hunted" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">The Hunted</span>
@@ -549,9 +578,9 @@
     <div class="games">
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/ember-ascent/" target="_blank">
           <img src="https://nishivector.github.io/ember-ascent/screenshot.png" alt="Ember Ascent" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Ember Ascent</span>
@@ -566,9 +595,9 @@
       </div>
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/signal-ghost/" target="_blank">
           <img src="https://nishivector.github.io/signal-ghost/screenshot.png" alt="Signal Ghost" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Signal Ghost</span>
@@ -590,9 +619,9 @@
     <div class="games">
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/prism-rift/" target="_blank">
           <img src="https://nishivector.github.io/prism-rift/screenshot.png" alt="Prism Rift" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Prism Rift</span>
@@ -606,9 +635,9 @@
       </div>
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/tide-shepherd/" target="_blank">
           <img src="https://nishivector.github.io/tide-shepherd/screenshot.png" alt="Tide Shepherd" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Tide Shepherd</span>
@@ -631,9 +660,9 @@
     <div class="games">
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/echo-cave/" target="_blank">
           <img src="https://nishivector.github.io/echo-cave/screenshot.png" alt="Echo Cave" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Echo Cave</span>
@@ -648,9 +677,9 @@
       </div>
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/last-lighthouse/" target="_blank">
           <img src="https://nishivector.github.io/last-lighthouse/screenshot.png" alt="Last Lighthouse" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Last Lighthouse</span>
@@ -672,9 +701,9 @@
     <div class="games">
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/stellar-end/" target="_blank">
           <img src="https://nishivector.github.io/stellar-end/screenshot.png" alt="Stellar End" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Stellar End</span>
@@ -689,9 +718,9 @@
       </div>
 
       <div class="game">
-        <div class="game-thumb">
+        <a class="game-thumb" href="https://nishivector.github.io/mycelium-pulse/" target="_blank">
           <img src="https://nishivector.github.io/mycelium-pulse/screenshot.png" alt="Mycelium Pulse" />
-        </div>
+        </a>
         <div class="game-body">
           <div class="game-title-row">
             <span class="game-title">Mycelium Pulse</span>
